@@ -1,3 +1,6 @@
+=== 17 September 2013 - Version 2.1.0
+Added 'add_roles' method to allow adding multiple roles in a single command
+
 === 18 August 2011 - Version 2.0.0.beta
 Rewrite the whole gem to be more modular, API is exactly the same
 Only supports Rails 3.x
