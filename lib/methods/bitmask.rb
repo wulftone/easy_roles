@@ -14,7 +14,7 @@ module EasyRoles
 
         states.reject.with_index { |r,i| masked_integer[i].zero? }
       end
-      
+
       base.send :define_method, :has_role? do |role|
         self._roles.inspect
 
@@ -29,6 +29,12 @@ module EasyRoles
       base.send :define_method, :add_role! do |role|
         add_role(role)
         self.save!
+      end
+
+      base.send :define_method, :add_roles do |roles|
+        roles.each do |role|
+          add_role(role)
+        end
       end
 
       base.send :define_method, :remove_role do |role|
@@ -47,7 +53,7 @@ module EasyRoles
         self[column_name.to_sym] = 0
       end
 
-      base.send :define_method, :clear_roles! do 
+      base.send :define_method, :clear_roles! do
         self.clear_roles
 
         self.save!
